@@ -2,6 +2,7 @@
 
 // grab the nerd model we just created
 var Nerd = require('./models/nerd');
+var Gadget = require('./models/gadget');
 
 
     module.exports = function(app) {
@@ -54,6 +55,15 @@ var Nerd = require('./models/nerd');
                    res.json(nerds); // return all nerds in JSON format
                   });
             });
+        });
+
+        // route to get all gadgets for a nerd
+        app.get('/api/nerd/:id/gadgets', function(req, res) {
+          Gadget.find({belongsToNerd:req.params.id}).exec(function(err, gadgets) {
+                  if (err)
+                    res.send(err);
+		  res.json(gadgets); // return all nerds in JSON format
+           });      
         });
 
     };

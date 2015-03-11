@@ -1,9 +1,15 @@
 // public/js/controllers/NerdCtrl.js
 angular.module('NerdCtrl', []).controller('NerdController', ['$scope', 'NerdsSrv', function($scope,NerdsSrv) {
-    $scope.tagline = 'Nothing beats a pocket protector!';
-    //$scope.nerds = [{"name":"static name 1"},{"name":"static name 2"}];
-
+    $scope.tagline = 'Some nerds with gadgets';
+    
     NerdsSrv.get().success(function(data) {
                 $scope.nerds = data;
+		// Construct the nerds by adding gadgets
+		$scope.nerds.forEach(function(entry){
+			NerdsSrv.getGadgets(entry._id).success(function(data){
+				entry.gadgets = data;
+			});
+		});
             });
+    
 }]);
