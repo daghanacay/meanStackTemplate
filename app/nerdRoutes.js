@@ -28,7 +28,9 @@ var Gadget = require('./models/gadget');
         // route to handle creating goes here (app.post)
         app.post('/api/nerds', function(req, res) {
             Nerd.create({
-                   name:req.body.name
+                   name:req.body.name,
+		   // Adds everything under the address hash
+                   address:req.body.address
                  },
                  function(err, nerds) {
                    if (err)
