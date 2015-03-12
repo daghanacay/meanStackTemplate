@@ -11,5 +11,16 @@ angular.module('NerdCtrl', []).controller('NerdController', ['$scope', 'NerdsSrv
 			});
 		});
             });
-    
+    $scope.createNerd = function(formData){
+	console.log("entering the controller");
+	NerdsSrv.create(formData).success(function(data){
+		$scope.nerds = data;
+		// Construct the nerds by adding gadgets
+		$scope.nerds.forEach(function(entry){
+			NerdsSrv.getGadgets(entry._id).success(function(data){
+				entry.gadgets = data;
+	                });
+		});
+        });
+    }
 }]);

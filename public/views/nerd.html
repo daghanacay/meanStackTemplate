@@ -28,4 +28,18 @@
                    Street: {{nerd.address.street}} <br/>
 	    </div>
         </div>
+        <!-- FORM TO CREATE NERD -->
+        <form role="form">
+            <div class="form-group">
+            <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+	      <label for="name">Name:</label>
+              <input type="text" id="name" class="form-control" ng-model="formData.name">
+              <label for="city">City:</label>
+              <input type="text" id="city" class="form-control" ng-model="formData.address.city">
+	      <label for="street">Street:</label>
+              <input type="text" id="street" class="form-control" ng-model="formData.address.street">
+            </div>
+              <!-- createToDo() WILL CREATE NEW TODOS -->
+            <button type="submit" class="btn btn-primary btn-lg" ng-click="createNerd(formData)">Add</button>
+       </form>
 </div>
