@@ -25,7 +25,7 @@ angular.module('NerdService', []).factory('NerdsSrv', function($http) {
 
         // call to DELETE a nerd
         delete : function(id) {
-            return $http.delete('/api/nerds/' + id);
+            return $http.delete('/api/nerd/' + id);
         },
         // call to get all gadgets for a nerd
         getGadgets : function(id) {
