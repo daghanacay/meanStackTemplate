@@ -4,8 +4,6 @@
 var Nerd = require('./models/nerd');
 var Gadget = require('./models/gadget');
 
-var Gadget = require('./models/gadget');
-
     module.exports = function(app) {
 
         // server routes ===========================================================
@@ -60,12 +58,9 @@ var Gadget = require('./models/gadget');
             });
         });
 
-<<<<<<< HEAD
-       // route to get all gadgets for a nerd
-=======
-        // route to get all gadgets for a nerd
->>>>>>> adding the conneciton between the gadgets and the nerds, both back end and front end are updated
-        app.get('/api/nerd/:id/gadgets', function(req, res) {
+
+// route to get all gadgets for a nerd
+       app.get('/api/nerd/:id/gadgets', function(req, res) {
           Gadget.find({belongsToNerd:req.params.id}).exec(function(err, gadgets) {
                   if (err)
                     res.send(err);
