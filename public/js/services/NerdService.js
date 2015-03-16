@@ -1,19 +1,10 @@
 // public/js/services/NerdService.js
-<<<<<<< HEAD
-angular.module('NerdService', []).factory('Nerd', ['$http', function($http) {
+angular.module('NerdService', []).factory('NerdsSrv', ['$http', function($http) {
     return {
         // call to get all nerds
         get : function() {
         console.log("List of nerds is requested.");
            return $http.get('/api/nerds');
-=======
-angular.module('NerdService', []).factory('NerdsSrv', function($http) {
-
-    return {
-        // call to get all nerds
-        get : function() {
-            return $http.get('/api/nerds');
->>>>>>> wiring up controler and service as well as the view accordingly
         },
 
         // these will work when more API routes are defined on the Node side of things
@@ -33,4 +24,4 @@ angular.module('NerdService', []).factory('NerdsSrv', function($http) {
         }
     }       
 
-});
+}]);
